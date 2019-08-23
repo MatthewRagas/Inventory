@@ -35,12 +35,19 @@ namespace Inventory_System
                 choice = Console.ReadLine();
                 Console.WriteLine("");
                 if(choice == "1")
-                {            
-                    EquipWeapon();
-                }
-                else if (choice == "2")
                 {
-                    UnequipWeapon();
+                    WeaponMenu();
+                }
+                else if (choice == "2" && weapon == true)
+                {
+                    if (option == "0")
+                        UnequipWeapon("Dagger", 9, 3);
+                    else if(option == "1")
+                        UnequipWeapon("Sword", 15, 7);
+                    else if(option == "2")
+                        UnequipWeapon("WarHammer", 25, 20);
+                    else if(option == "3")
+                        UnequipWeapon("GreatSword", 22, 16);
                 }
                 else if(choice == "3")
                 {
@@ -54,75 +61,59 @@ namespace Inventory_System
                         "Okay, how much do you want to spend");
                     float lostGold = Convert.ToSingle(Console.ReadLine());
                     SubtractGold(lostGold);
-                }
-                else
-                {
-                    Console.WriteLine("What????");
-                }
+                }               
             }
         }
 
-        public void EquipWeapon()
+        public void WeaponMenu()
         {
-           
-            if(weapon == false)
+            string choice = "";
+
+            while(choice != "4")
             {
                 //Display Weapon Menu;
                 Console.WriteLine("\n Weapon Menu:\n0: Dagger\n1: Sword\n2: " +
                     "Warhammer\n3: Greatsword\n4: Cancel");
-
                 //Get use input for weapon choice;
                 option = Console.ReadLine();
-                if(option == "0")
-                {
-                    Console.WriteLine("Equipped a Dagger!");
-                    damage = 25;
-                    currentWeight += 3;
-                    weapon = true;
-                    Console.WriteLine("Damage: " + damage);
-                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                }                
-                else if (option == "1")
-                {
-                    Console.WriteLine("Equipped a Sword!");
-                    damage = 35;
-                    currentWeight += 9;
-                    weapon = true;
-                    Console.WriteLine("Damage: " + damage);
-                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                }
-                else if(option == "2")
-                {
-                    Console.WriteLine("Equipped a Warhammer!");
-                    damage = 45;
-                    currentWeight += 20;
-                    weapon = true;
-                    Console.WriteLine("Damage: " + damage);
-                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                }
-                else if(option == "3")
-                {
-                    Console.WriteLine("Equipped a GreatSword!");
-                    damage = 45;
-                    currentWeight += 201;
-                    weapon = true;
-                    Console.WriteLine("Damage: " + damage);
-                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                }
-                else if(option == "4")
-                {
 
+                //calls function to equip weapon;
+                if (option == "0")
+                    EquipWeapon("Dagger", 9, 3);
+                else if (option == "1")
+                    EquipWeapon("Sword", 15, 7);
+                else if (option == "2")
+                    EquipWeapon("WarHammer", 25, 20);
+                else if (option == "3")
+                    EquipWeapon("GreatSword", 22, 16);
+                else if (option == "4")
+                {
+                    choice = "4";
                 }
+            }           
+        }
+
+        public void EquipWeapon(string weaponName, int weaponDamage, int weaponWeight)
+        {
+           
+            while(weapon == false)
+            { 
+
+                damage = weaponDamage;
+                currentWeight += weaponWeight;
+                weapon = true;
 
                 //checks weight limit;
                 if (currentWeight > maxWeight)
                 {
-                    UnequipWeapon();
+                    UnequipWeapon(weaponName, weaponDamage, weaponWeight);
                 }
+                Console.WriteLine("You have equipped a " + weaponName + "!\n" +
+                    "Damage: " + damage + "\nWeight: " + currentWeight + "/" + maxWeight);
             }            
 ;        }
 
-        public void UnequipWeapon()
+        public void UnequipWeapon(string weaponName, int weaponDamage, int weaponWeight)
         {
             //You cannot unequip your hands;
             if(weapon == false)
@@ -135,7 +126,7 @@ namespace Inventory_System
             //Used to force Unequip weapon if weight breaks limit;
             else if(weapon == true && currentWeight > maxWeight)
             {
-                Console.WriteLine("Just kidding, that Weapon is too heavy!");
+                Console.WriteLine("That Weapon is too heavy!");
                 weapon = false;
                 damage = 10;
                 if (option == "0")
@@ -148,23 +139,16 @@ namespace Inventory_System
                     currentWeight -= 201;
                 Console.WriteLine("Damage: " + damage);
                 Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                EquipWeapon();
+                WeaponMenu();
             }
 
             //Option to Unequip Weapon
             else if(weapon == true)
             {
                 Console.WriteLine("Unequipped a weapon.");
-                weapon = false;
+                currentWeight -= weaponWeight;
                 damage = 10;
-                if (option == "0")
-                    currentWeight -= 3;
-                else if (option == "1")
-                    currentWeight -= 9;
-                else if (option == "2")
-                    currentWeight -= 20;
-                else if (option == "3")
-                    currentWeight -= 201;
+                weapon = false;
                 Console.WriteLine("Damage: " + damage);
                 Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
             }
