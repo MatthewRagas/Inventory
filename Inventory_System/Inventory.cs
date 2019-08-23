@@ -12,6 +12,8 @@ namespace Inventory_System
         float gold = 0.00f;
         bool weapon = false;
         string option = "";
+        int currentWeight = 0;
+        int maxWeight = 200;
 
         public void Menu()
         {
@@ -68,55 +70,103 @@ namespace Inventory_System
                 //Display Weapon Menu;
                 Console.WriteLine("\n Weapon Menu:\n0: Dagger\n1: Sword\n2: " +
                     "Warhammer\n3: Greatsword\n4: Cancel");
+
+                //Get use input for weapon choice;
                 option = Console.ReadLine();
                 if(option == "0")
                 {
                     Console.WriteLine("Equipped a Dagger!");
                     damage = 25;
+                    currentWeight += 3;
                     weapon = true;
                     Console.WriteLine("Damage: " + damage);
+                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
                 }                
                 else if (option == "1")
                 {
                     Console.WriteLine("Equipped a Sword!");
                     damage = 35;
+                    currentWeight += 9;
                     weapon = true;
                     Console.WriteLine("Damage: " + damage);
+                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
                 }
                 else if(option == "2")
                 {
                     Console.WriteLine("Equipped a Warhammer!");
                     damage = 45;
+                    currentWeight += 20;
                     weapon = true;
                     Console.WriteLine("Damage: " + damage);
+                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
                 }
                 else if(option == "3")
                 {
                     Console.WriteLine("Equipped a GreatSword!");
                     damage = 45;
+                    currentWeight += 201;
                     weapon = true;
                     Console.WriteLine("Damage: " + damage);
+                    Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
                 }
                 else if(option == "4")
                 {
 
+                }
+
+                //checks weight limit;
+                if (currentWeight > maxWeight)
+                {
+                    UnequipWeapon();
                 }
             }            
 ;        }
 
         public void UnequipWeapon()
         {
+            //You cannot unequip your hands;
             if(weapon == false)
             {
                 Console.WriteLine("You do not have a weapon equipped.");
                 Console.WriteLine("Damage: " + damage);
+                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
             }
+
+            //Used to force Unequip weapon if weight breaks limit;
+            else if(weapon == true && currentWeight > maxWeight)
+            {
+                Console.WriteLine("Just kidding, that Weapon is too heavy!");
+                weapon = false;
+                damage = 10;
+                if (option == "0")
+                    currentWeight -= 3;
+                else if (option == "1")
+                    currentWeight -= 9;
+                else if (option == "2")
+                    currentWeight -= 20;
+                else if (option == "3")
+                    currentWeight -= 201;
+                Console.WriteLine("Damage: " + damage);
+                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
+                EquipWeapon();
+            }
+
+            //Option to Unequip Weapon
             else if(weapon == true)
             {
                 Console.WriteLine("Unequipped a weapon.");
                 weapon = false;
                 damage = 10;
+                if (option == "0")
+                    currentWeight -= 3;
+                else if (option == "1")
+                    currentWeight -= 9;
+                else if (option == "2")
+                    currentWeight -= 20;
+                else if (option == "3")
+                    currentWeight -= 201;
                 Console.WriteLine("Damage: " + damage);
+                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
             }
             
         }
