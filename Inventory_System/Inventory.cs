@@ -14,6 +14,7 @@ namespace Inventory_System
         string option = "";
         int currentWeight = 0;
         int maxWeight = 200;
+        int equippedWeapon;
 
         public void Menu()
         {
@@ -40,13 +41,13 @@ namespace Inventory_System
                 }
                 else if (choice == "2" && weapon == true)
                 {
-                    if (option == "0")
+                    if (equippedWeapon == 0)
                         UnequipWeapon("Dagger", 9, 3);
-                    else if(option == "1")
+                    else if(equippedWeapon == 1)
                         UnequipWeapon("Sword", 15, 7);
-                    else if(option == "2")
+                    else if(equippedWeapon == 2)
                         UnequipWeapon("WarHammer", 25, 20);
-                    else if(option == "3")
+                    else if(equippedWeapon == 3)
                         UnequipWeapon("GreatSword", 22, 16);
                 }
                 else if(choice == "3")
@@ -79,13 +80,25 @@ namespace Inventory_System
 
                 //calls function to equip weapon;
                 if (option == "0")
+                {
                     EquipWeapon("Dagger", 9, 3);
+                    equippedWeapon = 0;
+                }                    
                 else if (option == "1")
+                {
                     EquipWeapon("Sword", 15, 7);
+                    equippedWeapon = 1;
+                }                    
                 else if (option == "2")
+                {
                     EquipWeapon("WarHammer", 25, 20);
+                    equippedWeapon = 2;
+                }                    
                 else if (option == "3")
+                {
                     EquipWeapon("GreatSword", 22, 16);
+                    equippedWeapon = 3;
+                }                    
                 else if (option == "4")
                 {
                     choice = "4";
@@ -177,4 +190,5 @@ namespace Inventory_System
             Console.WriteLine("Gold: " + gold);
         }
     }
+
 }
