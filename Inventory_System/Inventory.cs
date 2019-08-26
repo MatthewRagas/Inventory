@@ -8,13 +8,16 @@ namespace Inventory_System
 {
     class Inventory
     {
-        int damage = 10;
-        float gold = 0.00f;
-        bool weapon = false;
-        string option = "";
-        int currentWeight = 0;
-        int maxWeight = 200;
-        int equippedWeapon;
+        private int _damage = 10;
+        private float _gold = 0.00f;
+        private bool _weapon = false;
+        private string _option = "";
+        private int _currentWeight = 0;
+        private int _maxWeight = 200;
+        private int _equippedWeapon;        
+
+
+        //Returns the value of our weapon damage      
 
         public void Menu()
         {
@@ -39,16 +42,16 @@ namespace Inventory_System
                 {
                     WeaponMenu();
                 }
-                else if (choice == "2" && weapon == true)
+                else if (choice == "2" && _weapon == true)
                 {
-                    if (equippedWeapon == 0)
+                    if (_equippedWeapon == 0)
                         UnequipWeapon("Dagger", 9, 3);
-                    else if(equippedWeapon == 1)
+                    else if(_equippedWeapon == 1)
                         UnequipWeapon("Sword", 15, 7);
-                    else if(equippedWeapon == 2)
+                    else if(_equippedWeapon == 2)
                         UnequipWeapon("WarHammer", 25, 20);
-                    else if(equippedWeapon == 3)
-                        UnequipWeapon("GreatSword", 22, 16);
+                    else if(_equippedWeapon == 3)
+                        UnequipWeapon("Bow and Arrow", 22, 16);
                 }
                 else if(choice == "3")
                 {
@@ -68,118 +71,34 @@ namespace Inventory_System
 
         public void WeaponMenu()
         {
-            string choice = "";
-
-            while(choice != "4")
-            {
-                //Display Weapon Menu;
-                Console.WriteLine("\n Weapon Menu:\n0: Dagger\n1: Sword\n2: " +
-                    "Warhammer\n3: Greatsword\n4: Cancel");
-                //Get use input for weapon choice;
-                option = Console.ReadLine();
-
-                //calls function to equip weapon;
-                if (option == "0")
-                {
-                    EquipWeapon("Dagger", 9, 3);
-                    equippedWeapon = 0;
-                }                    
-                else if (option == "1")
-                {
-                    EquipWeapon("Sword", 15, 7);
-                    equippedWeapon = 1;
-                }                    
-                else if (option == "2")
-                {
-                    EquipWeapon("WarHammer", 25, 20);
-                    equippedWeapon = 2;
-                }                    
-                else if (option == "3")
-                {
-                    EquipWeapon("GreatSword", 22, 16);
-                    equippedWeapon = 3;
-                }                    
-                else if (option == "4")
-                {
-                    choice = "4";
-                }
-            }           
+           
+                       
         }
 
         public void EquipWeapon(string weaponName, int weaponDamage, int weaponWeight)
         {
            
-            while(weapon == false)
-            { 
-
-                damage = weaponDamage;
-                currentWeight += weaponWeight;
-                weapon = true;
-
-                //checks weight limit;
-                if (currentWeight > maxWeight)
-                {
-                    UnequipWeapon(weaponName, weaponDamage, weaponWeight);
-                }
-                Console.WriteLine("You have equipped a " + weaponName + "!\n" +
-                    "Damage: " + damage + "\nWeight: " + currentWeight + "/" + maxWeight);
-            }            
-;        }
+                      
+;       }
 
         public void UnequipWeapon(string weaponName, int weaponDamage, int weaponWeight)
         {
             //You cannot unequip your hands;
-            if(weapon == false)
-            {
-                Console.WriteLine("You do not have a weapon equipped.");
-                Console.WriteLine("Damage: " + damage);
-                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-            }
-
-            //Used to force Unequip weapon if weight breaks limit;
-            else if(weapon == true && currentWeight > maxWeight)
-            {
-                Console.WriteLine("That Weapon is too heavy!");
-                weapon = false;
-                damage = 10;
-                if (option == "0")
-                    currentWeight -= 3;
-                else if (option == "1")
-                    currentWeight -= 9;
-                else if (option == "2")
-                    currentWeight -= 20;
-                else if (option == "3")
-                    currentWeight -= 201;
-                Console.WriteLine("Damage: " + damage);
-                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-                WeaponMenu();
-            }
-
-            //Option to Unequip Weapon
-            else if(weapon == true)
-            {
-                Console.WriteLine("Unequipped a weapon.");
-                currentWeight -= weaponWeight;
-                damage = 10;
-                weapon = false;
-                Console.WriteLine("Damage: " + damage);
-                Console.WriteLine("Weight: " + currentWeight + "/" + maxWeight);
-            }
-            
+          
         }
 
         public void AddGold(float amount)
         {
             Console.WriteLine("Got " + amount + " gold.");
-            gold += amount;
-            Console.WriteLine("Gold: " + gold);        }
+            _gold += amount;
+            Console.WriteLine("Gold: " + _gold);        }
 
         public void SubtractGold(float amount)
         {
-            gold -= amount;
-            if (gold < 0)
+            _gold -= amount;
+            if (_gold < 0)
             {
-                gold += amount;
+                _gold += amount;
                 Console.WriteLine("You don't have enough to buy that.");
             }
             else
@@ -187,7 +106,7 @@ namespace Inventory_System
                 Console.WriteLine("Lost " + amount + " gold.");
             }
             
-            Console.WriteLine("Gold: " + gold);
+            Console.WriteLine("Gold: " + _gold);
         }
     }
 

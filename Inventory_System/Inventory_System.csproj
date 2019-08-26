@@ -42,10 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assassin.cs" />
+    <Compile Include="AttackItem.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Knight.cs" />
+    <Compile Include="Magi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ranger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
