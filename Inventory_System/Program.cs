@@ -10,12 +10,23 @@ namespace RPG_System
     {
         static void Main(string[] args)
         {
+
+            //created monsters
             Monster matt = new Monster("Ninja", 30, 30);
             Monster boi = new Monster("Jake Paul", 20, 20);
-            matt.Print();
-            boi.Print();
-            matt.Fight(boi);
-            boi.Fight(matt);
+            Monster ree = new Monster("ree", 30, 30);
+            Monster eer = new Monster("eer", 20, 20);
+            Monster sam = new Monster("Sam", 20, 20);
+
+            //created two arrays of existing monsters
+            Monster[] blueTeam = { matt, boi, sam };
+            Monster[] redTeam = { ree, eer };
+
+            //Created an encounter using the two arrays.
+            Encounter encounter = new Encounter(blueTeam, redTeam);
+
+            encounter.Print();
+            encounter.Start();
 
 
             Console.ReadKey();

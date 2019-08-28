@@ -45,6 +45,7 @@
     <Compile Include="Assassin.cs" />
     <Compile Include="AttackItem.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Encounter.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Knight.cs" />
