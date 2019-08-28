@@ -10,7 +10,7 @@ namespace Inventory_System
     {
         private int _damage;
 
-        public int Damage
+       public int Damage
         {
             get
             {
@@ -18,6 +18,7 @@ namespace Inventory_System
             }
         }
 
+        //Constructor. Automatically returns stats for new AttackItem.
         public AttackItem(string newName, int newDamage, int newWeight)
         {
             name = newName;

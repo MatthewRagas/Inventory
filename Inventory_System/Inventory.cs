@@ -13,11 +13,20 @@ namespace Inventory_System
         private bool _weapon = false;
         private string _option = "";
         private int _currentWeight = 0;
-        private int _maxWeight = 200;
-        private int _equippedWeapon;        
+        private int _maxWeight = 200;        
+        private AttackItem[] _weaponList = new AttackItem[4];        
 
+       //populating the attack item list.
+       public Inventory()
+        {
+            _weaponList[0] = new AttackItem("Dagger", 10, 3);
+            _weaponList[1] = new AttackItem("Sword", 15, 7);
+            _weaponList[2] = new AttackItem("Scepter", 8, 8);
+            _weaponList[3] = new AttackItem("Bow", 22, 12);
+            
 
-        //Returns the value of our weapon damage      
+        }
+       
 
         public void Menu()
         {
@@ -40,18 +49,11 @@ namespace Inventory_System
                 Console.WriteLine("");
                 if(choice == "1")
                 {
-                    WeaponMenu();
+                   
                 }
                 else if (choice == "2" && _weapon == true)
                 {
-                    if (_equippedWeapon == 0)
-                        UnequipWeapon("Dagger", 9, 3);
-                    else if(_equippedWeapon == 1)
-                        UnequipWeapon("Sword", 15, 7);
-                    else if(_equippedWeapon == 2)
-                        UnequipWeapon("WarHammer", 25, 20);
-                    else if(_equippedWeapon == 3)
-                        UnequipWeapon("Bow and Arrow", 22, 16);
+                   
                 }
                 else if(choice == "3")
                 {
@@ -75,13 +77,13 @@ namespace Inventory_System
                        
         }
 
-        public void EquipWeapon(string weaponName, int weaponDamage, int weaponWeight)
+        public void EquipWeapon()
         {
            
                       
 ;       }
 
-        public void UnequipWeapon(string weaponName, int weaponDamage, int weaponWeight)
+        public void UnequipWeapon()
         {
             //You cannot unequip your hands;
           
