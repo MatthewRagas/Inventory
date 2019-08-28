@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory_System
+namespace RPG_System
 {
     class Ranger : Character
     {

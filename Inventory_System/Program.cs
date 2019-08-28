@@ -4,15 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory_System
+namespace RPG_System
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Inventory inventory = new Inventory();
-            //inventory.Menu();
-            
+            Monster matt = new Monster("Ninja", 30, 30);
+            Monster boi = new Monster("Jake Paul", 20, 20);
+            matt.Print();
+            boi.Print();
+            matt.Fight(boi);
+            boi.Fight(matt);
+
+
+            Console.ReadKey();
+
+            return;
+
+            Inventory inventory = new Inventory();
+            inventory.Menu();
+
             string name = "";
             string choice = "";
 
