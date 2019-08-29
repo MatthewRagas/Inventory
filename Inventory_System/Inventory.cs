@@ -14,9 +14,10 @@ namespace RPG_System
         private string _option = "";
         private int _currentWeight = 0;
         private int _maxWeight = 200;        
-        private AttackItem[] _weaponList = new AttackItem[4];        
+        private AttackItem[] _weaponList = new AttackItem[4];       
 
        //populating the attack item list.
+       //Constructor for inventory
        public Inventory()
         {
             _weaponList[0] = new AttackItem("Dagger", 10, 3);
@@ -49,7 +50,7 @@ namespace RPG_System
                 Console.WriteLine("");
                 if(choice == "1")
                 {
-                   
+                    WeaponMenu();
                 }
                 else if (choice == "2" && _weapon == true)
                 {
@@ -73,14 +74,36 @@ namespace RPG_System
 
         public void WeaponMenu()
         {
-           
+            Console.WriteLine("Which weapon would you like to Equip?");
+            Console.WriteLine("0: Exit\n1: Dagger\n2: Sword\n3: Scepter\n4: Bow");
+            string choice = Console.ReadLine();
+
+            if(choice == "0")
+            {
+
+            }
+            else if(choice == "1")
+            {
+                EquipWeapon(_weaponList[0]);
+            }
+            else if(choice == "2")
+            {
+                EquipWeapon(_weaponList[1]);
+            }
+            else if(choice == "3")
+            {
+                EquipWeapon(_weaponList[2]);
+            }
+            else if (choice == "4")
+            {
+                EquipWeapon(_weaponList[3]);
+            }
                        
         }
 
-        public void EquipWeapon()
+        public void EquipWeapon(AttackItem newWeapon)
         {
-           
-                      
+                                 
 ;       }
 
         public void UnequipWeapon()

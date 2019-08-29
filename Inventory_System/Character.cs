@@ -72,7 +72,7 @@ namespace RPG_System
                 }
                 
             }
-        }
+        }      
        
     }
 }

@@ -12,29 +12,29 @@ namespace RPG_System
         {
 
             //created monsters
-            Monster matt = new Monster("Ninja", 30, 30);
-            Monster boi = new Monster("Jake Paul", 20, 20);
-            Monster ree = new Monster("ree", 30, 30);
-            Monster eer = new Monster("eer", 20, 20);
-            Monster sam = new Monster("Sam", 20, 20);
+            //Monster matt = new Monster("Ninja", 30, 30);
+            //Monster boi = new Monster("Jake Paul", 20, 20);
+            //Monster ree = new Monster("ree", 30, 30);
+            //Monster eer = new Monster("eer", 20, 20);
+            //Monster sam = new Monster("Sam", 20, 20);
 
-            //created two arrays of existing monsters
-            Monster[] blueTeam = { matt, boi, sam };
-            Monster[] redTeam = { ree, eer };
+            ////created two arrays of existing monsters
+            //Monster[] blueTeam = { matt, boi, sam };
+            //Monster[] redTeam = { ree, eer };
 
-            //Created an encounter using the two arrays.
-            Encounter encounter = new Encounter(blueTeam, redTeam);
+            ////Created an encounter using the two arrays.
+            //Encounter encounter = new Encounter(blueTeam, redTeam);
 
-            encounter.Print();
-            encounter.Start();
+            //encounter.Print();
+            //encounter.Start();
 
 
-            Console.ReadKey();
+            //Console.ReadKey();
 
-            return;
+            //return;
 
-            Inventory inventory = new Inventory();
-            inventory.Menu();
+            //Inventory inventory = new Inventory();
+            //inventory.Menu();
 
             string name = "";
             string choice = "";
@@ -109,45 +109,11 @@ namespace RPG_System
                     Console.WriteLine(jeff.Name());
                     jeff.OpenInventory();
                 }
-            }            
-
-            Assassin hero = new Assassin("Weaboo Johnson");
-
-            hero.Experience = 30;
-            hero.Experience += 70;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience += 200;
-            hero.Experience++;
-            hero.Print();            
+            }                                   
 
             //an array is a list of a variable type;
             //first slot of an array is always 0;
             //you can initialize a variable in the list of an array;
-            int[] testArray = new int[4];
-
-            //assigning the slots of the array;
-            testArray[0] = 1;        
-            testArray[1] = 3;
-            testArray[2] = 5;
-            testArray[3] = 7;
 
           
 
