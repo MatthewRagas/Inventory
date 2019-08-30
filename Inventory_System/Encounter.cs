@@ -8,10 +8,12 @@ namespace RPG_System
 {
     class Encounter
     {
-        private Monster[] _blueMonsters;
-        private Monster[] _redMonsters;
+        private Creature[] _blueMonsters;
+        private Creature[] _redMonsters;
 
-        public Encounter(Monster[] monster1, Monster[] monster2)
+
+        //Constructor
+        public Encounter(Creature[] monster1, Creature[] monster2)
         {
             _blueMonsters = monster1;
             _redMonsters = monster2;
@@ -21,12 +23,12 @@ namespace RPG_System
         {
             for(int i = 0; i < _blueMonsters.Length; i++)
             {
-                Monster currentMonster = _blueMonsters[i];
+                Creature currentMonster = _blueMonsters[i];
                 currentMonster.Print();
             }
             for(int i = 0; i < _redMonsters.Length; i++)
             {
-                Monster currentMonster = _redMonsters[i];
+                Creature currentMonster = _redMonsters[i];
                 currentMonster.Print();
             }
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG_System
 {
-    class Monster
+    class Monster : Creature
     {
         private string _name = "Monster";
         private int _health = 10;
@@ -23,12 +23,12 @@ namespace RPG_System
             _damage = newDamage;
         }
 
-        public string GetName()
+        public override string GetName()
         {
             return _name;
         }
 
-        public int GetDamage()
+        public override int GetDamage()
         {
             return _damage;
         }
@@ -36,36 +36,16 @@ namespace RPG_System
 
         //properties use "get" and "set".
         //"get" gives you the value of a variable.
-        //"set" will assign a new value to a variable.
-        public int Health
-        {
-            get
-            {
-                return _health;
-            }
-            set
-            {
-                _health = value;
-                if(value >= _maxHealth)
-                {
-                    _health = _maxHealth;
-                }
-                else if(_health <= 0)
-                {
-                    _health = 0;
-                }                
-                
-            }
-        }
+        //"set" will assign a new value to a variable.      
 
-        public void Print()
+        public override void Print()
         {
             Console.WriteLine("\n" + _name + "'s health: " + _health + "/" + _maxHealth);
             Console.WriteLine(_name + "'s damage: " + _damage);
         }
 
         //targets health - monster damage!!!!!!!!!!
-        public void Fight(Monster target)
+        public override void Fight(Creature target)
         {
             if (Health <= 0)
                 return;
@@ -78,7 +58,7 @@ namespace RPG_System
            
         }
 
-        public void Fight(Monster[] targets)
+        public override void Fight(Creature[] targets)
         {
             if(Health <= 0)
             {

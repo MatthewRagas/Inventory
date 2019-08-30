@@ -12,26 +12,26 @@ namespace RPG_System
         {
 
             //created monsters
-            //Monster matt = new Monster("Ninja", 30, 30);
-            //Monster boi = new Monster("Jake Paul", 20, 20);
-            //Monster ree = new Monster("ree", 30, 30);
-            //Monster eer = new Monster("eer", 20, 20);
-            //Monster sam = new Monster("Sam", 20, 20);
+            Character matt = new Ranger("Ninja");
+            Character boi = new Assassin("Jake Paul");
+            Monster ree = new Monster("ree", 30, 30);
+            Monster eer = new Monster("eer", 20, 20);
+            Monster sam = new Monster("Sam", 20, 20);
 
-            ////created two arrays of existing monsters
-            //Monster[] blueTeam = { matt, boi, sam };
-            //Monster[] redTeam = { ree, eer };
+            //created two arrays of existing monsters
+            Creature[] blueTeam = { matt, boi, sam };
+            Creature[] redTeam = { ree, eer };
 
-            ////Created an encounter using the two arrays.
-            //Encounter encounter = new Encounter(blueTeam, redTeam);
+            //Created an encounter using the two arrays.
+            Encounter encounter = new Encounter(blueTeam, redTeam);
 
-            //encounter.Print();
-            //encounter.Start();
+            encounter.Print();
+            encounter.Start();
 
 
-            //Console.ReadKey();
+            Console.ReadKey();
 
-            //return;
+            return;
 
             //Inventory inventory = new Inventory();
             //inventory.Menu();
@@ -79,10 +79,10 @@ namespace RPG_System
             {
                 Console.WriteLine("Whose inventory?");                
                 Console.WriteLine("0: Exit");
-                Console.WriteLine("1: " + player.Name());
-                Console.WriteLine("2: " + kyle.Name());
-                Console.WriteLine("3: " + mike.Name());
-                Console.WriteLine("4: " + jeff.Name());
+                Console.WriteLine("1: " + player.GetName());
+                Console.WriteLine("2: " + kyle.GetName());
+                Console.WriteLine("3: " + mike.GetName());
+                Console.WriteLine("4: " + jeff.GetName());
                 choice = Console.ReadLine();
 
                 if (choice == "0")
@@ -91,22 +91,22 @@ namespace RPG_System
                 }
                 else if(choice == "1")
                 {
-                    Console.WriteLine(player.Name());
+                    Console.WriteLine(player.GetName());
                     player.OpenInventory();
                 }
                 else if(choice == "2")
                 {
-                    Console.WriteLine(kyle.Name());
+                    Console.WriteLine(kyle.GetName());
                     kyle.OpenInventory();
                 }
                 else if (choice == "3")
                 {
-                    Console.WriteLine(mike.Name());
+                    Console.WriteLine(mike.GetName());
                     mike.OpenInventory();
                 }
                 else if (choice == "4")
                 {
-                    Console.WriteLine(jeff.Name());
+                    Console.WriteLine(jeff.GetName());
                     jeff.OpenInventory();
                 }
             }                                   
