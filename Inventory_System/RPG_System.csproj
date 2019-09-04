@@ -46,15 +46,18 @@
     <Compile Include="AttackItem.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Creature.cs" />
+    <Compile Include="DefenseItem.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Magi.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranger.cs" />
+    <Compile Include="Scene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

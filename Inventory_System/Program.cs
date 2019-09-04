@@ -8,8 +8,49 @@ namespace RPG_System
 {
     class Program
     {
+        public static Random random = new Random();
+
+
         static void Main(string[] args)
         {
+            ////0: courtyard
+            ////1: Graveyard
+            ////2: Caslte Gates
+            ////3: Village
+            //Scene courtYard = new Scene("Courtyard", 2, 3, 1, 0, "The yard has a beautiful garden of many different flowers. The sky is clear and its nice and cool outside. There are exits in three directions N/S/E");
+            //Scene graveYard = new Scene("Graveyard", 1, 3, 1, 0, "There are many Topmbstones around. Most of them belonging to the Scout Regiment. You press F to pay respects. There are two exits", "You found The Devil's Scepter!");
+            //Scene castleGates = new Scene("Castle Gates", 2, 0, 2, 2, "The castle is massive but the gaurds stop you from entering. You are not permitted into the castle just yet.");
+            //Scene village = new Scene("Village", 0, 3, 1, 3, "There are towns people walking around and the shops are busy today. You feel crowded. There are two exits N/S");
+            //Scene[] scenes = { courtYard, graveYard, castleGates, village };
+            //Map map = new Map(0, scenes);
+           
+
+            ////map.PrintCurrentScene();
+            //map.Menu();
+
+            ////map.CurrnetSceneID = 1;
+            ////map.PrintCurrentScene();
+            ////map.CurrnetSceneID = 2;
+            ////map.PrintCurrentScene();
+            ////map.CurrnetSceneID = 3;
+            ////map.PrintCurrentScene();
+
+            //Console.ReadKey();
+
+            //return;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //created monsters
             Character matt = new Ranger("Ninja");
@@ -22,6 +63,8 @@ namespace RPG_System
             Creature[] blueTeam = { matt, boi, sam };
             Creature[] redTeam = { ree, eer };
 
+
+            matt.OpenInventory();
             //Created an encounter using the two arrays.
             Encounter encounter = new Encounter(blueTeam, redTeam);
 

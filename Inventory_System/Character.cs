@@ -18,6 +18,7 @@ namespace RPG_System
 
         protected string _name = "";
         protected int _health = 100;
+        protected int _maxHealth = 100;
         protected int _mana = 100;
         protected int _strength = 5;
         protected int _speed = 5;
@@ -25,7 +26,7 @@ namespace RPG_System
 
         public Character(string name)
         {
-            _name = name;
+            _name = name;            
         }
 
         public override string GetName()
