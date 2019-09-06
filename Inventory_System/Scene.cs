@@ -16,9 +16,10 @@ namespace RPG_System
         private int _east;
         private int _west;
         private string _hidden;
+        private Creature[] _monsterList;
 
         //Scene constructor
-        public Scene(string name, int northID, int southID, int eastID, int westID, string description, string hidden)
+        public Scene(string name, int northID, int southID, int eastID, int westID, Creature[] monsters, string description, string hidden)
         {
             _name = name;
             _description = description;
@@ -27,8 +28,9 @@ namespace RPG_System
             _east = eastID;
             _west = westID;
             _hidden = hidden;
+            _monsterList = monsters;
         }
-        public Scene(string name, int northID, int southID, int eastID, int westID, string description)
+        public Scene(string name, int northID, int southID, int eastID, int westID, Creature[] monsters, string description)
         {
             _name = name;
             _description = description;
@@ -36,6 +38,7 @@ namespace RPG_System
             _south = southID;
             _east = eastID;
             _west = westID;
+            _monsterList = monsters;
         }
 
         //Return the name

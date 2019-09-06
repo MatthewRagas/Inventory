@@ -10,13 +10,18 @@ namespace RPG_System
     {
         private Creature[] _blueMonsters;
         private Creature[] _redMonsters;
-
+        private Creature _player;
 
         //Constructor
-        public Encounter(Creature[] monster1, Creature[] monster2)
+        public Encounter(Creature[] playerParty, Creature[] monsters)
         {
-            _blueMonsters = monster1;
-            _redMonsters = monster2;
+            _blueMonsters = playerParty;
+            _redMonsters = monsters;
+        }
+        public Encounter(Creature player, Creature[] monsters)
+        {
+            _player = player;
+            _blueMonsters = monsters;
         }
 
         public void Print()

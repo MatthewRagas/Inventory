@@ -11,11 +11,22 @@ namespace RPG_System
     {
         private int _currentLocation;
         private Scene[] _sceneList;
+        private Creature[] _monstersList;
+        private Creature[] _playerList;
+        private Creature _player;
+        
 
-        public Map(int startingSceneID, Scene[] scenes)
+        public Map(int startingSceneID, Scene[] scenes, Creature[] playerParty)
         {
             _currentLocation = startingSceneID;
-            _sceneList = scenes;
+            _sceneList = scenes;            
+            _playerList = playerParty;
+        }
+        public Map(int startingSceneID, Scene[] scenes, Creature player)
+        {
+            _currentLocation = startingSceneID;
+            _sceneList = scenes;            
+            _player = player;
         }
 
         public void PrintCurrentScene()
@@ -56,9 +67,9 @@ namespace RPG_System
         public void Menu()
         {
             string choice = "";
-
+            Console.WriteLine(_sceneList[_currentLocation].GetDescription());
             while (choice != "0")
-            {
+            {               
                 Console.WriteLine("Would you like to travel?");
                 Console.WriteLine("0: Exit");
                 Console.WriteLine("1: Travel");
@@ -107,7 +118,7 @@ namespace RPG_System
 
         public void Save(string path)
         {
-            //Create a writer for he file at our path
+            //Create a writer for the file at our path
             StreamWriter writer = File.CreateText(path);
             
             //Write to it the same way we write
