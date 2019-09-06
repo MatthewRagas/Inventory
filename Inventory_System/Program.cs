@@ -23,7 +23,7 @@ namespace RPG_System
             //Scene village = new Scene("Village", 0, 3, 1, 3, "There are towns people walking around and the shops are busy today. You feel crowded. There are two exits N/S");
             //Scene[] scenes = { courtYard, graveYard, castleGates, village };
             //Map map = new Map(0, scenes);
-           
+
 
             ////map.PrintCurrentScene();
             //map.Menu();
@@ -53,11 +53,11 @@ namespace RPG_System
 
 
             //created monsters
-            Character matt = new Ranger("Ninja");
+            Character matt = new Ranger(Console.ReadLine());
             Character boi = new Assassin("Jake Paul");
-            Monster ree = new Monster("ree", 30, 30);
-            Monster eer = new Monster("eer", 20, 20);
-            Monster sam = new Monster("Sam", 20, 20);
+            Monster ree = new Monster("ree", 30, 30, 5);
+            Monster eer = new Monster("eer", 20, 20, 5);
+            Monster sam = new Monster("Sam", 20, 20, 5);
 
             //created two arrays of existing monsters
             Creature[] blueTeam = { matt, boi, sam };
@@ -65,11 +65,14 @@ namespace RPG_System
 
 
             matt.OpenInventory();
+            boi.OpenInventory();
             //Created an encounter using the two arrays.
             Encounter encounter = new Encounter(blueTeam, redTeam);
 
             encounter.Print();
             encounter.Start();
+            matt.Print();
+            boi.Print();
 
 
             Console.ReadKey();

@@ -9,7 +9,8 @@ namespace RPG_System
     class Creature
     {
         protected int _health = 5;
-        protected int _maxHealth = 5;       
+        protected int _maxHealth = 5;
+        protected int _xp;
         public virtual void Fight(Creature target)
         {
 
@@ -51,6 +52,17 @@ namespace RPG_System
                 {
                     _health = 0;
                 }
+
+            }
+        }
+        public virtual int Experience
+        {
+            get
+            {
+                return _xp;
+            }
+            set
+            {
 
             }
         }

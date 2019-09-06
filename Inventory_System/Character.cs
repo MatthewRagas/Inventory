@@ -9,16 +9,12 @@ namespace RPG_System
     class Character : Creature
     {        
         private int _playerLevel = 1;
-        private int _xp = 0;
         private int[] _requiredXP = { 100, 500, 1500, 3000 };
 
         private Inventory inventory = new Inventory();
+        
 
-        int currenWeapon = 0;
-
-        protected string _name = "";
-        protected int _health = 100;
-        protected int _maxHealth = 100;
+        protected string _name = "";       
         protected int _mana = 100;
         protected int _strength = 5;
         protected int _speed = 5;
@@ -26,7 +22,8 @@ namespace RPG_System
 
         public Character(string name)
         {
-            _name = name;            
+            _name = name;
+            _xp = 0;
         }
 
         public override string GetName()
@@ -36,7 +33,7 @@ namespace RPG_System
 
         public override void Print()
         {
-            Console.WriteLine(_name);
+            Console.WriteLine("\n" + _name);
             Console.WriteLine("Level: " + _playerLevel);
             Console.WriteLine("XP: " + _xp);
             Console.WriteLine("Health: " + _health);
@@ -44,6 +41,7 @@ namespace RPG_System
             Console.WriteLine("Strength: " + _strength);
             Console.WriteLine("Speed: " + _speed);
             Console.WriteLine("Wisdom: " + _wisdom);
+            Console.WriteLine("Combat Damage: " + GetDamage());
             Console.WriteLine("");
         }
 
@@ -53,7 +51,7 @@ namespace RPG_System
         }
 
         //property declaration;
-        public int Experience
+        public override int Experience
         {
             get
             {
@@ -86,9 +84,9 @@ namespace RPG_System
         {
             if (Health <= 0)
                 return;
-            int damage = GetDamage();
+            
 
-            target.Health -= damage;
+            target.Health -= GetDamage();
             Console.WriteLine("\n" + GetName() + " attacks " + target.GetName() + "\n" +
                 target.GetName() + "health: " + target.Health);
 
@@ -126,7 +124,11 @@ namespace RPG_System
                     validInput = true;
                     //Fight the chosen target
                     targets[choice].Health -= GetDamage();
-                    Console.WriteLine(targets[choice].GetName() + "'s health" + targets[choice].Health);
+                    Console.WriteLine(targets[choice].GetName() + "'s health: " + targets[choice].Health);
+                    if(targets[choice].Health <= 0)
+                    {
+                        Experience += targets[choice].Experience;
+                    }
                 }
                 
             }
